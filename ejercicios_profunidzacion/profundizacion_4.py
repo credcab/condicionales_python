@@ -33,3 +33,63 @@ contenido.
 
 print('Ejercicios de práctica con cadenas')
 # Empezar aquí la resolución del ejercicio
+palabra_1 = str(input('Ingrese la primer palabra:'))
+palabra_2 = str(input('Ingrese la segunda palabra:'))
+palabra_3 = str(input('Ingrese la tercer palabra:'))
+consulta = int(input('¿como desea ordenarlas? 1 -alfabéticamente o 2 - por cantidad de letras:'))
+
+# si usuario elige opción 1, ordenar alfabéticamente
+if consulta == 1:
+    if palabra_1 > palabra_2:
+        if palabra_1 > palabra_3:
+            orden_3 = palabra_1
+            if palabra_2 > palabra_3:
+                orden_2 = palabra_2
+                orden_1 = palabra_3
+            else:
+                orden_2 = palabra_3
+                orden_1 = palabra_2
+    elif palabra_2 > palabra_3:
+            orden_3 = palabra_2
+            if palabra_1 > palabra_3:
+                orden_2 = palabra_1
+                orden_1 = palabra_3
+            else:
+                orden_2 = palabra_3
+                orden_1 = palabra_1
+    else:
+        orden_3 = palabra_3
+        if palabra_1 > palabra_2:
+            orden_2 = palabra_1
+            orden_1 = palabra_2
+# si usuario elige opción 2, ordenar por extensión de palabra
+elif consulta == 2:
+        extension_1 = len(palabra_1)
+        extension_2 = len(palabra_2)
+        extension_3 = len(palabra_3)
+        if extension_1 > extension_2:
+            if extension_1 > extension_3:
+                orden_3 = palabra_1
+                if extension_2 > extension_3:
+                    orden_2 = palabra_2
+                    orden_1 = palabra_3
+                else:
+                    orden_2 = palabra_3
+                    orden_1 = palabra_2
+        elif extension_2 > extension_3:
+                orden_3 = palabra_2
+                if extension_1 > extension_3:
+                    orden_2 = palabra_1
+                    orden_1 = palabra_3
+                else:
+                    orden_2 = palabra_3
+                    orden_1 = palabra_1
+        else:
+            orden_3 = palabra_3
+            if extension_1 > extension_2:
+                orden_2 = palabra_1
+                orden_1 = palabra_2
+if consulta == 1:
+    print('ordenadas alfabéticamente de Mayor a Menor quedan así: {}, {} y {}'.format(orden_3, orden_2, orden_1))
+else:
+    print('ordenadas por extensión de Mayor a Menor quedan así: {}, {} y {}'.format(orden_3, orden_2, orden_1))
